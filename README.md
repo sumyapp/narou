@@ -31,6 +31,12 @@ Narou.rb - 小説家になろうのダウンローダ＆縦書き整形＆管理
 ![WEB UI ScreenCapture](https://raw.github.com/wiki/whiteleaf7/narou/images/webui_cap.png)
 ![Console ScreenCapture](https://raw.github.com/wiki/whiteleaf7/narou/images/narou_cap.gif)
 
+最新のRubyで利用する際の注意
+------------------------------
+- Ruby 3.4 以降では Bundler が標準添付されなくなりました。`gem install bundler` で Bundler を導入し、初回に `bundle install` を実行してください。
+- コマンドは `bundle exec narou ...` もしくは `bundle exec ruby narou.rb ...` の形式で実行することを推奨します。Gemfile.lock に固定された依存関係を確実に読み込めます。
+- Ruby 3.4 以降で標準ライブラリから外れた `csv`・`nkf`・`ostruct` などは Narou.rb の依存に含めています。Bundler を経由せずに利用する場合は、これらの gem を手動でインストールしてください。
+
 更新履歴 - ChangeLog
 --------------------
 
