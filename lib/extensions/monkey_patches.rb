@@ -5,3 +5,4 @@
 #
 
 require_relative "monkey_patches/pathname"
+require_relative "monkey_patches/rackup_handler"

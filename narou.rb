@@ -29,6 +29,11 @@ require_relative "lib/inventory"
 $development = Narou.commit_version.!
 if $development
   begin
+    require "bundler/setup"
+  rescue LoadError
+    warn "Bundler が見つかりません。開発環境で実行する場合は `gem install bundler` または `bundle install` を実行してください。"
+  end
+  begin
     require "pry"
     require "awesome_print"
   rescue LoadError

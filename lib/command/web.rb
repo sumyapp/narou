@@ -140,11 +140,20 @@ module Command
       ProgressBar.push_server = push_server
       Narou::Worker.push_server = push_server
       Narou::AppServer.push_server = push_server
-      Narou::WebWorker.run
-      Narou::AppServer.run!
-      push_server.quit
-      Narou::WebWorker.stop
-      Narou::Worker.stop
+
+      begin
+        Narou::WebWorker.run
+        Narou::AppServer.run!
+      rescue Exception => e
+        STDERR.puts "[narou web] サーバ起動中に例外が発生しました (#{e.class}): #{e.message}"
+        STDERR.puts e.full_message(highlight: false, order: :top)
+        raise
+      ensure
+        push_server.quit
+        Narou::WebWorker.stop
+        Narou::Worker.stop
+      end
+
       if Narou::AppServer.request_reboot?
         exit Narou::EXIT_REQUEST_REBOOT
       end
@@ -185,4 +194,3 @@ module Command
 
   end
 end
-

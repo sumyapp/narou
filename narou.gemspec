@@ -59,7 +59,10 @@ Gem::Specification.new do |gem|
   gem.add_runtime_dependency 'haml', '>= 5.1.2', '< 6'
   gem.add_runtime_dependency 'memoist', '~> 0.11.0'
   gem.add_runtime_dependency 'systemu', '~> 2.6', '>= 2.6.5'
-  gem.add_runtime_dependency 'erubis', '~> 2.7'
+  gem.add_runtime_dependency 'erubi', '~> 1.12'
+  gem.add_runtime_dependency 'nkf', '>= 0.1.1'
+  gem.add_runtime_dependency 'ostruct', '>= 0.5'
+  gem.add_runtime_dependency 'csv', '>= 3.2'
   gem.add_runtime_dependency 'open_uri_redirections', '~> 0.2', '>= 0.2.1'
   gem.add_runtime_dependency 'activesupport', '>= 6.1', '< 8.0'
   gem.add_runtime_dependency 'unicode-display_width', '~> 1.4'
@@ -75,4 +78,3 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'awesome_print', '~> 1.8'
   gem.add_development_dependency 'simplecov', '~> 0.20'
 end
-
